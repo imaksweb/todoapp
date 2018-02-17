@@ -3,10 +3,14 @@
     todo-input(
       @addTodo="addNewTodo"
     )
+    todo-list(
+      :todos="todos"
+    )
 </template>
 
 <script>
 import todoInput from "./todoInput";
+import todoList from "./todoList";
 
 export default {
   data() {
@@ -20,7 +24,8 @@ export default {
     }
   },
   components: {
-    todoInput
+    todoInput,
+    todoList
   }  
 }
 </script>

@@ -7,7 +7,7 @@
         ) {{todo.name}}
     .footer
       .footer-content
-        .counter Кол-во заданий: 0
+        .counter Кол-во заданий: {{todos.length}}
       .filter
         button(type="button") All
         button(type="button") Active

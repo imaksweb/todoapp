@@ -8,6 +8,7 @@
 </template>
 
 <script>
+let uniqueId = 1;
 export default {
   data() {
     return {
@@ -20,6 +21,7 @@ export default {
   },
   methods: {
     addTodo(e) {
+      this.todo.id = uniqueId++;
       this.$emit('addTodo', {...this.todo});
       this.todo.name = '';
     }

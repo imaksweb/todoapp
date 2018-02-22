@@ -5,6 +5,9 @@
     )
     todo-list(
       :todos="todos"
+      :todoLeft="todoLeft"
+      @checkTodo="checkTodo"
+      @removeTodo="removeTodo"
     )
 </template>
 
@@ -15,12 +18,21 @@ import todoList from "./todoList";
 export default {
   data() {
     return {
-      todos: []
+      todos: [],
+      todoLeft: 0
     }
   },
   methods: {
     addNewTodo(todo) {
       this.todos.push(todo);
+      this.todoLeft = this.todos.length
+    },
+    checkTodo(todo) {
+      this.todos = this.todos.map(item => item.id === todo.id ? todo : item)
+    },
+    removeTodo(todoID) {
+      this.todos = this.todos.filter(item => item.id !== todoID)
+      this.todoLeft = this.todos.length
     }
   },
   components: {
